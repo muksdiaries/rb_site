@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-body, html {
-  height: 100%;
-}
+  <head>
+    <style>
+      body,
+      html {
+        height: 100%;
+        background: #000000;
+        margin: 0;
+        padding: 0;
+      }
 
-.bg {
-  /* The image used */
-  background-image: url("bg.png");
+      .bg {
+        /* The image used */
+        background-image: url("bg.png");
 
-  /* Full height */
-  height: 100%;
+        width: 100%;
+        padding-bottom: 50%;
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-</style>
-</head>
-<body>
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
 
-<h2>Background Image</h2>
-
-<p>By default, the background image will repeat itself if it is smaller than the element where it is specified, in this case the body element.</p>
-
-</body>
+      .demoWrapper {
+        box-sizing: border-box;
+        resize: horizontal;
+        border: 1px dashed;
+        overflow: auto;
+        max-width: 100%;
+        height: calc(100vh - 16px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demoWrapper">
+      <div class="bg"></div>
+    </div>
+  </body>
 </html>
