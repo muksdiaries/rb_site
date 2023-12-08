@@ -1,0 +1,19 @@
+.models_container {
+    margin-top: 100px;
+    top: 0;
+    position: fixed;
+  }
+
+  .models_container .my_slides {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 560%;
+    opacity: 0.3;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .community_banner {
+    position: fixed;
+    z-index: 0;
+  }
