@@ -1,5 +1,4 @@
 .models_container {
-    margin-top: 100px;
     top: 0;
     position: fixed;
   }
@@ -14,6 +13,6 @@
   }
 
   .community_banner {
-    position: fixed;
+    position: relative;
     z-index: 0;
   }
