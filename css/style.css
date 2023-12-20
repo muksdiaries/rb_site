@@ -102,7 +102,7 @@ h6 {
 }
 
 .section-header::before {
-  content: '';
+  content: "";
   position: absolute;
   display: block;
   width: 60px;
@@ -309,7 +309,7 @@ h6 {
 
 .nav-menu li.join-us a:hover {
   background: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .nav-menu li.join-us:hover a:before,
@@ -531,7 +531,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro .play-btn::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: 50%;
@@ -547,7 +547,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro .play-btn:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 120px;
   height: 120px;
@@ -576,7 +576,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #intro .play-btn:hover::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: 50%;
@@ -828,7 +828,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #schedule .tab-pane {
-  transition: ease-in-out .2s;
+  transition: ease-in-out 0.2s;
 }
 
 #schedule .schedule-item {
@@ -1205,14 +1205,29 @@ body.mobile-nav-active #mobile-nav-toggle {
 # Buy Tickets Section
 --------------------------------------------------------------*/
 
+#discipline {
+  padding: 60px 0;
+}
+
+#discipline ul {
+  display: inline-block;
+  text-align: left;
+  color: #9195a2;
+}
+
+#discipline p {
+  color: #9195a2;
+}
+
 #join-us {
   padding: 60px 0;
+  margin-bottom: 20px;
 }
 
 #join-us .card {
   border: none;
   border-radius: 5px;
-  transition: all  0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.1);
 }
 
