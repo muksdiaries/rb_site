@@ -463,7 +463,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 #intro {
   width: 100%;
   height: 100vh;
-  background: url(../img/intro-bg.jpg) top center;
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -471,7 +470,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #intro:before {
   content: "";
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 1);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -614,6 +613,33 @@ body.mobile-nav-active #mobile-nav-toggle {
 #intro .about-btn:hover {
   background: #ffdf72;
   color: #fff;
+}
+
+#events {
+  text-align: center;
+  padding: 0 15px;
+  background: rgba(0, 0, 0, 1);
+}
+
+#events .events-container {
+  text-align: center;
+  padding: 0 15px;
+}
+
+#events h2 {
+  color: #ffdf72;
+}
+
+#events-grid h3 {
+  color: #ffdf72;
+}
+
+#events-grid p {
+  color: #d3d3d3;
+}
+
+#spacer {
+  height: 120px !important;
 }
 
 @-webkit-keyframes pulsate-btn {
@@ -1407,14 +1433,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 
 #footer {
-  background: #101522;
+  background: #101010;
   padding: 0 0 25px 0;
   color: #eee;
   font-size: 14px;
 }
 
 #footer .footer-top {
-  background: #040919;
+  background: #090909;
   padding: 60px 0 30px 0;
 }
 
