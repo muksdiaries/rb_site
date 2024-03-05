@@ -1,7 +1,33 @@
 var baseUrl = "https://raw.githubusercontent.com/sm650rb/events/main/";
 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    return false;
+};
+
+var getDate = function getDate(param) {
+    var d = new Date(param.split("/").join("-"));
+    var dd = d.getDate();
+    var mm = d.toLocaleDateString('en-GB', {
+        month: 'long'
+    }).replace(/ /g, '-');
+    var yy = d.getFullYear();
+    return dd + ' ' + mm + ', ' + yy;
+}
+
 $(document).ready(function () {
-    if ($('#events-grid')) {
+    if ($('#events-grid').length) {
         $.getJSON(baseUrl + 'events.json', function (data) {
             var events = data.events;
             var past = events.past;
@@ -12,8 +38,7 @@ $(document).ready(function () {
                     style: 'margin-bottom: 30px'
                 }).append(
                     $("<a/>", {
-                        href: "http://www.google.com",
-                        target: "_blank"
+                        href: "event.html?date=" + evt.date,
                     }).append($("<img/>", {
                         class: 'img-fluid',
                         src: evt.cover_picture,
@@ -28,18 +53,30 @@ $(document).ready(function () {
                             }),
                             $("<p/>", {
                                 class: 'card-text',
-                                text: evt.date
+                                text: getDate(evt.date)
                             })
                         )
                     ));
                 $("#events-grid").append(evtDiv);
             });
+        }).error(function (jqXHR, textStatus, errorThrown) {
+            console.log("error " + textStatus);
+            console.log("incoming Text " + jqXHR.responseText);
         });
-    } else if ($('#event-detail')) {
-        $.getJSON(baseUrl + 'events.json', function (data) {
-            var events = data.events;
-            var past = events.past;
+        return
+    } else if ($('#event-detail').length) {
+        var date = getUrlParameter('date');
+        $.getJSON(baseUrl + "past/" + date + '.json', function (data) {
             $("#loading").empty();
+            console.log(data);
+            $("#event-detail")
+                .append($("<h2/>", {}).text(data.name))
+                .append($("<p/>", {}).text(getDate(data.date)));
+            $("#event-desc").html("<p>" + data.description + "</p>");
+            $.each(data.gallery, function (i, image) {
+                $('#event-images').trigger('add.owl.carousel', ["<a href='" + image + "' class='venobox' data-gall='gallery-carousel'><img src=" + image + " alt=''></a>"]);
+            });
+            $("#event-images").trigger('refresh.owl.carousel')
         });
     }
 });
