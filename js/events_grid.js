@@ -32,6 +32,9 @@ $(document).ready(function () {
             var events = data.events;
             var past = events.past;
             $("#loading").empty();
+            past.sort(function (a, b) {
+                return new Date(b.date) - new Date(a.date);
+            });
             $.each(past, function (i, evt) {
                 var evtDiv = $("<div/>", {
                     class: 'col-lg-4 col-md-6',
