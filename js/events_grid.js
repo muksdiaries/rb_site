@@ -75,7 +75,7 @@ $(document).ready(function () {
             $("#event-detail")
                 .append($("<h2/>", {}).text(data.name))
                 .append($("<p/>", {}).text(getDate(data.date)));
-            $("#event-desc").html("<p>" + data.description + "</p>");
+            $("#event-desc").html("<p>" + /*data.description*/ + "</p>");
             $.each(data.gallery, function (i, image) {
                 $('#event-images').trigger('add.owl.carousel', ["<a href='" + image + "' class='venobox' data-gall='gallery-carousel'><img src=" + image + " alt=''></a>"]);
             });
